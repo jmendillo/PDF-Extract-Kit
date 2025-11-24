@@ -30,8 +30,9 @@ def main(config_path):
     mfd_model = task_instances['formula_detection'].model if 'formula_detection' in task_instances else None
     mfr_model = task_instances['formula_recognition'].model if 'formula_recognition' in task_instances else None
     ocr_model = task_instances['ocr'].model if 'ocr' in task_instances else None
+    table_model = task_instances['table_parsing'].model if 'table_parsing' in task_instances else None
     
-    pdf_extract_task = TASK_REGISTRY.get(TASK_NAME)(layout_model, mfd_model, mfr_model, ocr_model)
+    pdf_extract_task = TASK_REGISTRY.get(TASK_NAME)(layout_model, mfd_model, mfr_model, ocr_model,table_model)
     extract_results = pdf_extract_task.process(input_data, save_dir=result_path, visualize=visualize, merge2markdown=merge2markdown)
 
     print(f'Task done, results can be found at {result_path}')
