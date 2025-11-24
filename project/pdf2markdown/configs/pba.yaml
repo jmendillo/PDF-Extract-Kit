@@ -30,7 +30,7 @@ tasks:
       model_path: models/TabRec/StructEqTable
       max_new_tokens: 1024
       max_time: 30
-      output_format: Latex
+      output_format: latex
       lmdeploy: False
       flash_attn: False
   ocr:
